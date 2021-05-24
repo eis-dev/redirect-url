@@ -1,13 +1,13 @@
 const express = require('express');
 const request = require('request');
 
-let app = express();
+let web = express();
 
-app.get('/', function (req, res) {
+web.get('/', function (req, res) {
     let q = req.query.q;
     let r = request.get(q, () => {
         res.send({query: q, result: r.uri.href})
     });
 });
 
-app.listen(3000);
+web.listen(3000);
